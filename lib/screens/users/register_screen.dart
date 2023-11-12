@@ -41,14 +41,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
         listener: (context,state){
           if(state is RegisterSuccessState) {
             if(state.loginModel.success!){
-              print(state.loginModel.message);
-              navigateFinish(context, LoginScreen());
-              // print(state.loginModel.token);
-              // CacheHelper.saveData(key: 'token', value: state.loginModel.token).then((value) {
-              //   token=state.loginModel.token;
-              //   print('navigate');
-              //   navigateFinish(context, LoginScreen());
-              // });
+                print(state.loginModel.message);
+                navigateFinish(context, LoginScreen());
+                // print(state.loginModel.token);
+                // CacheHelper.saveData(key: 'token', value: state.loginModel.token).then((value) {
+                //   token=state.loginModel.token;
+                //   print('navigate');
+                //   navigateFinish(context, LoginScreen());
+                // });
             }else{
               print(state.loginModel.message);
               messageToast(
@@ -284,6 +284,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   password: passController.text,
                                   confirmPassword: confirmPassController.text,
                                 );
+                                if(nameController.text.length< 3){
+                                  messageToast(msg: '\'username\'length must be at least 3 characters long', state: ToastStates.ERROR);
+                                }
+                                if (!emailController.text.endsWith(".com")) {
+                                  messageToast(
+                                    msg:  "\"email\" must be a valid email",
+                                    state: ToastStates.ERROR,
+                                  );
+                                }
+                                if(phoneController.text.length< 11){
+                                  messageToast(msg:  "\"phone\" length must be at least 11 characters long", state: ToastStates.ERROR);
+                                }
+                                if(passController.text.length < 6){
+                                  messageToast(msg:"\"password\" length must be at least 6 characters long", state: ToastStates.ERROR);
+                                }
+                                if(passController.text != confirmPassController.text){
+                                  messageToast(msg: "Passwords do not match", state: ToastStates.ERROR);
+                                }
                               }},
                             child: const Text(
                               'Sign Up',
