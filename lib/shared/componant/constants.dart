@@ -1,4 +1,6 @@
 
+import 'dart:ui';
+
 import '../network/local/cache_helper.dart';
 import 'component.dart';
 
@@ -10,6 +12,7 @@ void signOut(context){
 
 String? uId='';
 String? token='';
+Color defaultColor=Color(0xff127d9a);
 
 // To print full Text
 void printFullText(String text) {

@@ -6,7 +6,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 Widget defaultButton({
    double width=double.infinity,
-   Color background=Colors.blue,
+   Color background=Colors.teal,
    bool isUpperCase=true,
    double raduis=0.0,
    required final function,

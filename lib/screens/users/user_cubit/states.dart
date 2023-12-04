@@ -14,6 +14,7 @@ class LoginSuccessState extends UserStates{
   LoginSuccessState(this.loginModel);
 }
 
+
 class LoginErrorState extends UserStates{
   final String error;
 

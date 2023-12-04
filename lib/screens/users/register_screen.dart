@@ -41,14 +41,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
         listener: (context,state){
           if(state is RegisterSuccessState) {
             if(state.loginModel.success!){
-                print(state.loginModel.message);
-                navigateFinish(context, LoginScreen());
-                // print(state.loginModel.token);
-                // CacheHelper.saveData(key: 'token', value: state.loginModel.token).then((value) {
-                //   token=state.loginModel.token;
-                //   print('navigate');
-                //   navigateFinish(context, LoginScreen());
-                // });
+              print(state.loginModel.message);
+              navigateFinish(context, LoginScreen());
+              // print(state.loginModel.token);
+              // CacheHelper.saveData(key: 'token', value: state.loginModel.token).then((value) {
+              //   token=state.loginModel.token;
+              //   print('navigate');
+              //   navigateFinish(context, LoginScreen());
+              // });
             }else{
               print(state.loginModel.message);
               messageToast(
