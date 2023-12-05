@@ -6,7 +6,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 Widget defaultButton({
    double width=double.infinity,
-   Color background=Colors.teal,
    bool isUpperCase=true,
    double raduis=0.0,
    required final function,
@@ -25,7 +24,7 @@ Widget defaultButton({
   ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(raduis),
-        color: background,
+        color: Color(0xff127d9a),
       ),
 );
 
@@ -36,6 +35,53 @@ Widget defaultTextButton({
 })=>TextButton(
     onPressed: function,
     child: Text(text.toUpperCase())
+);
+
+Widget defaultTextForm({
+  required TextEditingController controller,
+  required TextInputType type,
+  bool isPassword=false,
+  required String labelText,
+  required final validate,
+  required IconData prefix,
+  final  suffixPressed,
+  final onChanged,
+  final onSubmit,
+  final suffix,
+  final onTap,
+  bool isEnabled=true,
+})=>TextFormField(
+  controller: controller,
+  keyboardType: type,
+  onChanged:onChanged ,
+  onFieldSubmitted: onSubmit,
+  validator: validate,
+  obscureText: isPassword,
+  onTap: onTap,
+  enabled: isEnabled,
+
+  decoration: InputDecoration(
+    labelText: labelText,
+      labelStyle: TextStyle(
+          // color:  Color(0xff127d9a)
+        color: Colors.grey
+      ),
+    focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: Color(0xff127d9a), width: 2.0),
+    ),
+    border:  OutlineInputBorder(),
+    prefixIcon: Icon(
+        prefix ,color: Colors.grey,
+    ),
+    suffixIcon: suffix != null ? IconButton(
+      onPressed: suffixPressed,
+      icon: Icon(
+          suffix,color: Color(0xff127d9a),
+      ),
+    ) : null,
+
+  ),
+
 );
 
 Widget myDivider()=>Padding(

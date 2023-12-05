@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/out_of_pickup.dart';
+import 'edit_profile.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -133,7 +134,7 @@ class ProfileScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(10.0),
                     child: InkWell(
                       onTap: (){
-
+                        navigateTo(context, EditProfile());
                       },
                       child: Container(
                         decoration: BoxDecoration(
